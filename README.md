@@ -12,4 +12,4 @@
      - 编写校验Signature类：[CheckUtil.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/util/CheckUtil.java)(包含checkSignature、sha1加密方法)
      - 编写[WechatServlet.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/servlet/WechatServlet.java)(包含doget、dopost方法)
      - 编写[MessageUtil.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/util/MessageUtil.java),包含：xml转成 Map集合、将文本消息 转换成xml的方法。
-     
+     - 利用自己微信向公众号发送文本，能反馈回发送的文本消息。
