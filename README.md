@@ -1,7 +1,16 @@
 # TestWechat
 屎香香的微信公众号开发之路:smirk:  
 
-## 第一章 基础入门
+## 第一章 屎香香踩过的坑 :blush:
+ - 1.报错“org.xmlpull.v1.XmlPullParserException”
+     - xstream有依赖的，需要同时加入xmlpull_xx.jar就行了
+ - 2.发送消息没反应
+     - 检查返回消息文本元素节点大小写，如[TextMessage.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/po/TextMessage.java)里面所有字段大写。我一开始小写的。
+ - 3.乱码问题
+     - 设置req、resp为utf-8，详见[WechatServlet.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/servlet/WechatServlet.java)中的doPost方法前两行代码。
+ 
+ 
+## 第二章 基础入门
  - 1.公众号开发环境准备
      - natapp注册、实名认证,下载natapp.exe;
      - 下载学习链接https://natapp.cn/ 购买免费隧道
