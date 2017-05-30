@@ -34,6 +34,7 @@ public class WechatServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	   req.setCharacterEncoding("UTF-8");
 	   resp.setCharacterEncoding("UTF-8");
+	   //将传来的xml解析成消息对象，再将消息对象转为xml传给微信后台
 	   PrintWriter out=resp.getWriter();
 	   try {
 			Map<String,String> map=MessageUtil.xmlToMap(req);
@@ -42,15 +43,25 @@ public class WechatServlet extends HttpServlet {
 			String msgType=map.get("MsgType");
 			String content=map.get("Content");
 			String message=null;
-			if("text".equals(msgType)){
-				TextMessage textMessage=new TextMessage();
-				textMessage.setFromUserName(toUserName);
-				textMessage.setToUserName(fromUserName);
-				textMessage.setContent("您发送的消息是："+content);
-				textMessage.setMsgType("text");
-				textMessage.setCreateTime(String.valueOf(new Date().getTime()));
-				textMessage.toString();
-				message=MessageUtil.textMessageToXml(textMessage);
+			if(MessageUtil.MSGTYPE_TEXT.equals(msgType)){
+				if("1".equals(content)){//关键字判断
+					message=MessageUtil.initText(toUserName, fromUserName, MessageUtil.firstSubMenu());
+				}else if("2".equals(content)){
+					message=MessageUtil.initText(toUserName, fromUserName, MessageUtil.secondSubMenu());
+				}else if("?".equals(content)||"？".equals(content)){//关键字判断
+					message=MessageUtil.initText(toUserName, fromUserName, MessageUtil.menuText());
+				}else{
+					System.out.println(content+"---cont");
+					message=MessageUtil.initText(toUserName, fromUserName, "您输入的"+content+"我无法接招!");
+				}
+			}else if(MessageUtil.MSGTYPE_EVENT.equals(msgType)){
+				//事件类型再去细化判断
+				String eventType=map.get("Event");
+				if(MessageUtil.EVENT_SUBSCRIBE.equals(eventType)){
+					message=MessageUtil.initText(toUserName, fromUserName, MessageUtil.menuText());
+				}
+			}else{
+				message=MessageUtil.initText(toUserName, fromUserName, MessageUtil.menuText());
 			}
 			out.print(message);
 			System.out.println(message);
