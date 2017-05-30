@@ -1,7 +1,7 @@
 # TestWechat
-屎香香的微信公众号开发之路:smirk:  
+小吴庆同学的微信公众号开发之路:smirk:  
 
-## 第一章 屎香香踩过的坑 :blush:
+## 第一章 小吴庆踩过的坑 :blush:
  - 1.报错“org.xmlpull.v1.XmlPullParserException”
      - xstream有依赖的，需要同时加入xmlpull_xx.jar就行了
  - 2.发送消息没反应
