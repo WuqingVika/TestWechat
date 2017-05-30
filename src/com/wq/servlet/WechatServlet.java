@@ -50,7 +50,7 @@ public class WechatServlet extends HttpServlet {
 					message=MessageUtil.initText(toUserName, fromUserName, MessageUtil.secondSubMenu());
 				}else if("?".equals(content)||"？".equals(content)){//关键字判断
 					message=MessageUtil.initText(toUserName, fromUserName, MessageUtil.menuText());
-				}else{
+				}else{//这一段我自己添加的，如果未输入关键字的情况 显示未处理
 					System.out.println(content+"---cont");
 					message=MessageUtil.initText(toUserName, fromUserName, "您输入的"+content+"我无法接招!");
 				}

@@ -22,3 +22,7 @@
      - 编写[WechatServlet.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/servlet/WechatServlet.java)(包含doget、dopost方法)
      - 编写[MessageUtil.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/util/MessageUtil.java),包含：xml转成 Map集合、将文本消息 转换成xml的方法。
      - 利用自己微信向公众号发送文本，能反馈回发送的文本消息。
+
+ - 3.显示操作菜单
+     - 修改[MessageUtil.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/util/MessageUtil.java)类：(定义消息类型字段、制作主菜单方法、组合文本消息、定义操作项一和二)
+     - 设置关键字分别有:1、2和中英文问号，返回对应的消息
