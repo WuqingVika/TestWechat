@@ -26,4 +26,4 @@
  - 3.显示操作菜单
      - 修改[MessageUtil.java](https://github.com/WuqingVika/TestWechat/blob/master/src/com/wq/util/MessageUtil.java)类：(定义消息类型字段、制作主菜单方法、组合文本消息、定义操作项一和二)
      - 设置关键字分别有:1、2和中英文问号，返回对应的消息
-     - 测试git
+     - 测试git git小乌龟使用基本入门（http://blog.csdn.net/jdsjlzx/article/details/51098588)
